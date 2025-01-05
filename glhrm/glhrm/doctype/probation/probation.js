@@ -47,7 +47,38 @@ frappe.ui.form.on('Probation', {
     },
     last_name: function(frm) {
         updateFullName(frm);
+    },
+
+
+    onload: function(frm) {
+        // Fetch the next Employee ID only for new records
+        if (frm.is_new()) {
+            frappe.call({
+                method: "glhrm.glhrm.doctype.probation.prob.get_next_custom_employee_id",
+                callback: function(r) {
+                    if (!r.exc) {
+                        let n;
+                    
+
+                        if (r.message >= 1 && r.message<10) {
+                            n='RR/000'+r.message;
+                        } else if (r.message >= 10 && r.message<100) {
+                            n='RR/00'+r.message;
+                        } else if (r.message >= 100 && r.message<1000) {
+                            n='RR/0'+r.message;
+                        } else {
+                            n='RR/'+r.message;
+                        }
+                        
+                      
+                        frm.set_value("employee_id", n);
+                        frappe.msgprint(`New Employee ID assigned: ${n}`);
+                    }
+                }
+            });
+        }
     }
+
 });
 
 function updateFullName(frm) {

@@ -1,8 +1,9 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "RR/.####",
- "creation": "2024-11-30 22:00:13.387534",
+ "autoname": "PR/.####",
+ "creation": "2025-01-05 17:47:40.419343",
+ "default_view": "List",
  "description": "GLCA HRM Module",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -25,15 +26,21 @@
   "in_probation_days",
   "end_date_ec",
   "end_date_gc",
-  "tab_break_rbqx",
   "section_break_zmyr",
   "family",
+  "amended_from",
   "amended_from"
  ],
  "fields": [
   {
    "fieldname": "section_break_1h00",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID",
+   "reqd": 1
   },
   {
    "fieldname": "first_name",
@@ -62,12 +69,6 @@
    "in_standard_filter": 1,
    "label": "Full Name",
    "read_only": 1
-  },
-  {
-   "fieldname": "employee_id",
-   "fieldtype": "Data",
-   "label": "Employee ID",
-   "reqd": 1
   },
   {
    "fieldname": "column_break_ohxh",
@@ -118,8 +119,26 @@
    "reqd": 1
   },
   {
+   "fieldname": "gender",
+   "fieldtype": "Link",
+   "label": "Gender",
+   "options": "Gender",
+   "reqd": 1
+  },
+  {
    "fieldname": "column_break_bnri",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "New",
+   "fieldname": "probation_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "New\nOn progress\nEvaluated"
   },
   {
    "default": "60",
@@ -127,6 +146,16 @@
    "fieldtype": "Int",
    "label": "In Probation Days",
    "reqd": 1
+  },
+  {
+   "fieldname": "end_date_ec",
+   "fieldtype": "Data",
+   "label": "End Date (GC)"
+  },
+  {
+   "fieldname": "end_date_gc",
+   "fieldtype": "Date",
+   "label": "End Date EC"
   },
   {
    "fieldname": "section_break_zmyr",
@@ -149,45 +178,23 @@
    "search_index": 1
   },
   {
-   "fieldname": "gender",
+   "fieldname": "amended_from",
    "fieldtype": "Link",
-   "label": "Gender",
-   "options": "Gender",
-   "reqd": 1
-  },
-  {
-   "default": "New",
-   "fieldname": "probation_status",
-   "fieldtype": "Select",
-   "in_filter": 1,
-   "in_list_view": 1,
-   "in_preview": 1,
-   "in_standard_filter": 1,
-   "label": "Status",
-   "options": "New\nOn progress\nEvaluated"
-  },
-  {
-   "fieldname": "end_date_gc",
-   "fieldtype": "Date",
-   "label": "End Date GC"
-  },
-  {
-   "fieldname": "end_date_ec",
-   "fieldtype": "Data",
-   "label": "End Date (EC)"
-  },
-  {
-   "fieldname": "tab_break_rbqx",
-   "fieldtype": "Tab Break"
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "rrt",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-05 17:50:33.556229",
+ "modified": "2025-01-05 17:47:40.419343",
  "modified_by": "Administrator",
  "module": "glhrm",
- "name": "Probation",
+ "name": "rrt",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

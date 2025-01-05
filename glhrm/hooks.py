@@ -27,7 +27,7 @@ app_license = "mit"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/glhrm/css/glhrm.css"
 # app_include_js = "/assets/glhrm/js/glhrm.js"
-
+app_include_js = "/assets/glhrm/js/custom_script.js"
 # include js, css files in header of web template
 # web_include_css = "/assets/glhrm/css/glhrm.css"
 # web_include_js = "/assets/glhrm/js/glhrm.js"
@@ -144,7 +144,11 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
-
+doc_events = {
+    "Employee": {
+        "on_update": "glhrm.custom_methods.employee_id_logic.update_employee_id"
+    }
+}
 # Scheduled Tasks
 # ---------------
 
