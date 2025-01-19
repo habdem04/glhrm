@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "RR/.####",
+ "autoname": "naming_series:",
+ "color": "Green",
  "creation": "2024-11-30 22:00:13.387534",
  "description": "GLCA HRM Module",
  "doctype": "DocType",
@@ -13,18 +14,26 @@
   "middle_name",
   "last_name",
   "full_name",
-  "column_break_ohxh",
   "designation",
+  "naming_series",
+  "date_of_birth_ec",
+  "basic_salary",
+  "column_break_ohxh",
+  "date_of_joining_ec",
+  "date_of_birth",
   "separtment",
   "grade",
-  "date_of_joining_ec",
   "date_of_joining",
   "gender",
-  "column_break_bnri",
   "probation_status",
+  "workflow_state",
+  "column_break_bnri",
   "in_probation_days",
   "end_date_ec",
   "end_date_gc",
+  "approved_by_hrd_head",
+  "signature",
+  "hrd_approved_date",
   "tab_break_rbqx",
   "section_break_zmyr",
   "family",
@@ -156,7 +165,7 @@
    "reqd": 1
   },
   {
-   "default": "New",
+   "default": "Draft",
    "fieldname": "probation_status",
    "fieldtype": "Select",
    "in_filter": 1,
@@ -164,7 +173,7 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "New\nOn progress\nEvaluated"
+   "options": "Draft\nApproved\nRejected\nOn Evaluation\nEvaluated"
   },
   {
    "fieldname": "end_date_gc",
@@ -179,16 +188,58 @@
   {
    "fieldname": "tab_break_rbqx",
    "fieldtype": "Tab Break"
+  },
+  {
+   "fieldname": "approved_by_hrd_head",
+   "fieldtype": "Data",
+   "label": "Approved By (HRD Head)"
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "hrd_approved_date",
+   "fieldtype": "Date",
+   "label": "HRD Approved Date"
+  },
+  {
+   "fieldname": "workflow_state",
+   "fieldtype": "Data",
+   "label": "Workflow State "
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "HR-PB-"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth_ec",
+   "fieldtype": "Data",
+   "label": "Date of Birth EC"
+  },
+  {
+   "fieldname": "basic_salary",
+   "fieldtype": "Currency",
+   "label": "Basic Salary"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-05 17:50:33.556229",
+ "modified": "2025-01-12 00:58:18.617836",
  "modified_by": "Administrator",
  "module": "glhrm",
  "name": "Probation",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -217,7 +268,7 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
+ "search_fields": "employee_id,full_name",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [
@@ -231,9 +282,10 @@
   },
   {
    "color": "Blue",
-   "title": "New"
+   "title": "Draft"
   }
  ],
+ "title_field": "employee_id",
  "track_changes": 1,
  "track_views": 1
 }
